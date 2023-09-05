@@ -11,5 +11,7 @@ result = number1 ___ number2
 
 # print result
 print(result)
+
 number1 = 0
+result = 0
 # end
