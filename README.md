@@ -1,0 +1,2 @@
+# ejercicioGit
+pruebas con GIT
