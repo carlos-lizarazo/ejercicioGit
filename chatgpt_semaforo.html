@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Semáforo</title>
+    <style>
+		#traffic-light {
+		  width: 80px;
+		  height: 200px;
+		  border: 1px solid black;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: space-between;
+		}
+
+		.bulb {
+		  width: 60px;
+		  height: 60px;
+		  border-radius: 50%;
+		  margin: 10px auto;
+		}
+
+		.red {
+		  background-color: red;
+		}
+
+		.yellow {
+		  background-color: yellow;
+		}
+
+		.green {
+		  background-color: green;
+		}
+    </style>
+  </head>
+  <body>
+    <h1>Semáforo</h1>
+	<div id="traffic-light">
+	  <div class="bulb red"></div>
+	  <div class="bulb yellow"></div>
+	  <div class="bulb green"></div>
+	</div>
+
+    <script>
+	// Obtener los elementos del semáforo
+	const redLight = document.querySelector(".red");
+	const yellowLight = document.querySelector(".yellow");
+	const greenLight = document.querySelector(".green");
+
+	// Establecer los intervalos de tiempo para cada luz
+	const redTime = 3000;
+	const yellowTime = 1000;
+	const greenTime = 3000;
+
+	// Función que cambia las luces
+	function changeLights() {
+	  setTimeout(() => {
+		// Cambiar a luz amarilla
+		redLight.classList.remove("active");
+		yellowLight.classList.add("active");
+		setTimeout(() => {
+		  // Cambiar a luz verde
+		  yellowLight.classList.remove("active");
+		  greenLight.classList.add("active");
+		  setTimeout(() => {
+			// Cambiar a luz roja
+			greenLight.classList.remove("active");
+			redLight.classList.add("active");
+			// Volver a empezar el ciclo
+			changeLights();
+		  }, redTime);
+		}, greenTime);
+	  }, yellowTime);
+	}
+
+	// Iniciar el ciclo de cambio de luces
+	changeLights();
+    </script>
+  </body>
+</html>
