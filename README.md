@@ -1,2 +1,2 @@
 # ejercicioGit
-pruebas con GIT
+Inventario en Spring Boot
